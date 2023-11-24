@@ -19,7 +19,20 @@ public class Movie {
    }
 
    public static Integer filmYearDifference(){
-       Integer yearGap = 12;
+       Integer oldestFilm = 0;
+       Integer newestFilm = 0;
+       
+       for (int i = 0; i < Database.length; i++) /*will iterate through the database, specifically at the release year*/
+       {
+           Integer currentYear = DatabaseYear[i];
+           if(currentYear > newestFilm){
+               newestFilm = currentYear;
+           }
+           else if (currentYear < oldestFilm){
+               oldestFilm = currentYear;
+           }
+       }
+       Integer yearGap = newestFilm - oldestFilm;
        return yearGap;
    }
 }
