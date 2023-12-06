@@ -6,14 +6,14 @@ import java.util.*;
 
 public class MovieDatabase {
 
-    MovieDatabase(){
-        String name = movieList[0];
-        String releaseDate = movieList[1];
-        String certificate = movieList[2];
-        String genre = movieList[3];
-        String duration = movieList[4];
-        String rating = movieList[5];
-    }
+    // MovieDatabase(){
+    //     String name = movieList[0];
+    //     String releaseDate = movieList[1];
+    //     String certificate = movieList[2];
+    //     String genre = movieList[3];
+    //     String duration = movieList[4];
+    //     String rating = movieList[5];
+    // }
 
     static ArrayList<Movie> movieIndex = new ArrayList<>();
     private static String[] movieList = new String[6];
