@@ -8,8 +8,10 @@ public class Main {
         ArrayList<Movie> movies = imdb.movieIndex;
         imdb.sortDuration();
         System.out.println(movies);
-
-
+        movies.sort(new ByRating());
+//        System.out.println(movies);
+        for(int i = 0; i < movies.size(); i++) {
+            System.out.println(movies.get(i).getName() + " , " + movies.get(i).getRating());
+        }
 
     }
-}
