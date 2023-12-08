@@ -1,4 +1,4 @@
-public class Movie {
+public class Movie implements Comparable<Movie>{
 
     private String name;
     private int releaseDate;
@@ -9,12 +9,12 @@ public class Movie {
 
     public Movie(String line){
         String[] fields = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
-        name = fields[0];
-        releaseDate = Integer.parseInt(fields[1]);
-        certificate = fields[2];
-        genre = fields[3];
-        duration = Integer.parseInt(fields[4]);
-        rating = Double.parseDouble(fields[5]);
+        this.name = fields[0];
+        this.releaseDate = Integer.parseInt(fields[1]);
+        this.certificate = fields[2];
+        this.genre = fields[3];
+        this.duration = Integer.parseInt(fields[4]);
+        this.rating = Double.parseDouble(fields[5]);
     }
 
     public String getName() {
