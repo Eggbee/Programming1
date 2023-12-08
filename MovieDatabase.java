@@ -13,24 +13,32 @@ public class MovieDatabase {
 
     public static void main(String[] args) { //throws java.io.IOException{
 
-        try {
-            BufferedReader myData = new BufferedReader(new FileReader("movies.txt"));
-            String line;
-            while((line = myData.readLine()) != null) {
-//                System.out.println(line);
-                Movie newmovie = new Movie(line);
-//                System.out.println(newmovie);
-                movieIndex.add(newmovie);
-            }
-//            System.out.println(movieIndex);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+
 
     }
 
-    public void sortDuration(){
+    public void readData()
+    {
+        try
+        {
+            BufferedReader myData = new BufferedReader(new FileReader("movies.txt"));
+            String line;
+            while ((line = myData.readLine()) != null)
+            {
+                //                System.out.println(line);
+                Movie newmovie = new Movie(line);
+                //                System.out.println(newmovie);
+                movieIndex.add(newmovie);
+            }
+            //            System.out.println(movieIndex);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void sortDuration(){
         Collections.sort(movieIndex);
         for(Movie other:movieIndex){
 
@@ -44,4 +52,7 @@ public class MovieDatabase {
 
 
 }
+
+
+
 
