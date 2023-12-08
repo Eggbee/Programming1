@@ -35,12 +35,15 @@ public class Movie implements Comparable<Movie>{
     public double getRating() {
         return rating;
     }
-    
-    public int compareTo(Movie other) {
-        return Integer.compare(this.duration, other.duration);
-    }
+
+
+     public int compareTo(Movie other) {
+         return Integer.compare(this.duration, other.duration);
+     }
+
     public String toString(){
-        return name + " " + releaseDate + " " + certificate + " " 
+        return name + " " + releaseDate + " " + certificate + " "
                 + genre + " " + duration + " " + rating;
     }
+
 }
