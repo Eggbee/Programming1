@@ -20,6 +20,7 @@ public class Main {
         System.out.println("The movie with the longest name is: " + imdb.longestName());
 
         //Query for Part 6
+        System.out.println("The number of years seperating the oldest and newest films is : " + imdb.sortReleaseDate());
 
     }
 }
