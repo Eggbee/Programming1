@@ -10,13 +10,6 @@ public class MovieDatabase {
 
     static ArrayList<Movie> movieIndex = new ArrayList<>();
 
-
-    public static void main(String[] args) { //throws java.io.IOException{
-
-
-
-    }
-
     public void readData()
     {
         try
@@ -25,12 +18,12 @@ public class MovieDatabase {
             String line;
             while ((line = myData.readLine()) != null)
             {
-                //                System.out.println(line);
+                
                 Movie newmovie = new Movie(line);
-                //                System.out.println(newmovie);
+                
                 movieIndex.add(newmovie);
             }
-            //            System.out.println(movieIndex);
+            
         }
         catch (IOException e)
         {
@@ -46,13 +39,8 @@ public class MovieDatabase {
         reverse(movieIndex);
     }
 
-
-
-
-
-
+    public static void main(String[] args) {
+        
+    }
 }
-
-
-
 
