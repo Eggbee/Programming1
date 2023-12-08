@@ -5,9 +5,10 @@ public class Main {
 
         MovieDatabase imdb = new MovieDatabase();
         imdb.readData();
-        ArrayList<Movie> movies = imdb.movieIndex;
+
 
         //Query for Part  2
+        ArrayList<Movie> movies = imdb.movieIndex;
         imdb.sortDuration();
         System.out.println(movies);
 
@@ -16,7 +17,9 @@ public class Main {
         //Query for Part 4
 
         //Query for Part 5
+        System.out.println("The movie with the longest name is: " + imdb.longestName());
 
         //Query for Part 6
+
     }
 }
