@@ -34,16 +34,24 @@ public class MovieDatabase {
     //sort by Duration
     public static void sortDuration(){
         Collections.sort(movieIndex);
-        for(Movie other:movieIndex){
-
-        }
         reverse(movieIndex); //converts from ascending order to descending order
     }
 
-    public static void sortReleaseDate(){
-        Collections.sort(movieIndex);
-        for(Movie other:movieIndex){
-
+    public Integer sortReleaseDate(){
+        ArrayList<Integer> listOfYears = new ArrayList<>();
+        for (Movie movie : movieIndex) {
+            listOfYears.add(movie.getReleaseDate());
+        }
+        Collections.sort(movieIndex, new ByReleaseDate());
+        Integer latestYear = Collections.max(listOfYears);
+        Integer oldestYear = Collections.min(listOfYears);
+        Integer yearGap = latestYear - oldestYear;
+        return yearGap;
+    }
+    public static class ByReleaseDate implements Comparator<Movie> {
+        @Override
+        public int compare(Movie movie1, Movie movie2) {
+            return movie1.getReleaseDate() - movie2.getReleaseDate();
         }
     }
 
@@ -65,7 +73,11 @@ public class MovieDatabase {
     public static void main(String[] args) {
 
     }
-    
+
+
+
+
+
 }
 
 
