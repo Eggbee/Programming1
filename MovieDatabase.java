@@ -18,12 +18,12 @@ public class MovieDatabase {
             String line;
             while ((line = myData.readLine()) != null)
             {
-                
+
                 Movie newmovie = new Movie(line);
-                
+
                 movieIndex.add(newmovie);
             }
-            
+
         }
         catch (IOException e)
         {
@@ -31,16 +31,43 @@ public class MovieDatabase {
         }
     }
 
+    //sort by Duration
     public static void sortDuration(){
         Collections.sort(movieIndex);
         for(Movie other:movieIndex){
 
         }
-        reverse(movieIndex);
+        reverse(movieIndex); //converts from ascending order to descending order
+    }
+
+    public static void sortReleaseDate(){
+        Collections.sort(movieIndex);
+        for(Movie other:movieIndex){
+
+        }
+    }
+
+    //find the longest name
+    public Movie longestName()
+    {
+        Collections.sort(movieIndex);
+        Movie longestName = movieIndex.get(0);
+        for(Movie movie:movieIndex){
+            if (movie.getName().length() > longestName.getName().length())
+            {
+                longestName = movie;
+            }
+        }
+        return longestName;
+
     }
 
     public static void main(String[] args) {
-        
+
     }
+    
 }
+
+
+
 
