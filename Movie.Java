@@ -1,12 +1,16 @@
+
+
 public class Movie {
-     private String name;
-     private int releaseDate;
-     private String certificate;
-     private String genre;
-     private int duration;
-     private double rating;
+
+    private String name;
+    private int releaseDate;
+    private String certificate;
+    private String genre;
+    private int duration;
+    private double rating;
+
     public Movie(String line){
-        String[] fields = line.split("(?<=\\G.,)");
+        String[] fields = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
         name = fields[0];
         releaseDate = Integer.parseInt(fields[1]);
         certificate = fields[2];
@@ -33,5 +37,10 @@ public class Movie {
     public double getRating() {
         return rating;
     }
+
+
+     public int compareTo(Movie other) {
+         return Integer.compare(this.duration, other.duration);
+     }
 
 }
