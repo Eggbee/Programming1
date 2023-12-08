@@ -6,12 +6,17 @@ public class Main {
         MovieDatabase imdb = new MovieDatabase();
         imdb.readData();
         ArrayList<Movie> movies = imdb.movieIndex;
+
+        //Query for Part  2
         imdb.sortDuration();
         System.out.println(movies);
-        movies.sort(new ByRating());
-//        System.out.println(movies);
-        for(int i = 0; i < movies.size(); i++) {
-            System.out.println(movies.get(i).getName() + " , " + movies.get(i).getRating());
-        }
 
+        //Query for Part 3
+        movies.sort(new ByRating());
+        //Query for Part 4
+
+        //Query for Part 5
+
+        //Query for Part 6
     }
+}
