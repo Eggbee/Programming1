@@ -1,4 +1,3 @@
-import javax.swing.text.html.StyleSheet;
 import java.lang.*;
 import java.io.*;
 import java.io.BufferedReader;
@@ -76,20 +75,18 @@ public class MovieDatabase {
 
     }
 
-    public static void sciFi() {
-        ArrayList<Movie> filteredCertificates = ArrayList<>();
+    public static Movie sciFi() {
+        List<Movie> filteredCertificates = new ArrayList<>();
         for(Movie movie:movieIndex){
-            if (movie.getCertificate() == "PG") {
+            if ("PG".equals(movie.getCertificate())) {
                 filteredCertificates.add(movie);
             }
         }
         Collections.sort(filteredCertificates);
         filteredCertificates.sort(new ByReleaseDate());
-        return filteredCertificates[4];
+        return filteredCertificates.get(4);
     }
 
 }
-
-
 
 
