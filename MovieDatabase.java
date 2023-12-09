@@ -31,6 +31,8 @@ public class MovieDatabase {
         }
     }
 
+
+
     //sort by Duration
     public static void sortDuration(){
         Collections.sort(movieIndex);
@@ -74,9 +76,17 @@ public class MovieDatabase {
 
     }
 
-
-
-
+    public static void sciFi() {
+        ArrayList<Movie> filteredCertificates = ArrayList<>();
+        for(Movie movie:movieIndex){
+            if (movie.getCertificate() == "PG") {
+                filteredCertificates.add(movie);
+            }
+        }
+        Collections.sort(filteredCertificates);
+        filteredCertificates.sort(new ByReleaseDate());
+        return filteredCertificates[4];
+    }
 
 }
 
