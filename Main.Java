@@ -11,11 +11,11 @@ public class Main {
         ArrayList<Movie> movies = imdb.movieIndex;
         imdb.sortDuration();
         System.out.println(movies);
-
         //Query for Part 3
         movies.sort(new ByRating());
+        System.out.println("The lowest rated Sci-Fi movie is: " + imdb.sciFi());
         //Query for Part 4
-
+        System.out.println("The fifth most recent PG movie is: " + imdb.PGratedMovie());
         //Query for Part 5
         System.out.println("The movie with the longest name is: " + imdb.longestName());
 
