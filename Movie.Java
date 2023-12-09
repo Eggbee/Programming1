@@ -41,6 +41,9 @@ public class Movie implements Comparable<Movie>{
         return Integer.compare(this.duration, other.duration);
     }
 
+
+
+
     public String toString(){
         return name + " " + releaseDate + " " + certificate + " "
                 + genre + " " + duration + " " + rating;
