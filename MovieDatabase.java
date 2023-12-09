@@ -38,22 +38,40 @@ public class MovieDatabase {
         reverse(movieIndex); //converts from ascending order to descending order
     }
 
-    public Integer sortReleaseDate(){
-        ArrayList<Integer> listOfYears = new ArrayList<>();
-        for (Movie movie : movieIndex) {
-            listOfYears.add(movie.getReleaseDate());
-        }
-        Collections.sort(movieIndex, new ByReleaseDate());
-        Integer latestYear = Collections.max(listOfYears);
-        Integer oldestYear = Collections.min(listOfYears);
-        Integer yearGap = latestYear - oldestYear;
-        return yearGap;
-    }
+
     public static class ByReleaseDate implements Comparator<Movie> {
         @Override
         public int compare(Movie movie1, Movie movie2) {
             return movie1.getReleaseDate() - movie2.getReleaseDate();
         }
+    }
+
+    //finds the lowest rated sci-fi film
+    public Movie sciFi() {
+        List<Movie> filteredGenres = new ArrayList<>();
+        for(Movie movie:movieIndex){
+            if (movie.getGenre().contains("Sci-Fi") == true) {
+                filteredGenres.add(movie);
+            }
+        }
+        Collections.sort(filteredGenres);
+        filteredGenres.sort(new ByReleaseDate());
+        return filteredGenres.get(0);
+    }
+
+    //Finds the five most recent PG film
+    public Movie PGratedMovie()
+    {
+        ArrayList<Movie> filteredCertificates = new ArrayList<>();
+        for(Movie movie:movieIndex){
+            if ("PG".equals(movie.getCertificate())) {
+                filteredCertificates.add(movie);
+            }
+        }
+        Collections.sort(filteredCertificates);
+        filteredCertificates.sort(new ByReleaseDate());
+        int arrayLength = filteredCertificates.size();
+        return filteredCertificates.get(arrayLength - 5);
     }
 
     //find the longest name
@@ -71,22 +89,28 @@ public class MovieDatabase {
 
     }
 
+    //find the gap between the oldest and newest film
+    public Integer sortReleaseDate(){
+        ArrayList<Integer> listOfYears = new ArrayList<>();
+        for (Movie movie : movieIndex) {
+            listOfYears.add(movie.getReleaseDate());
+        }
+        Collections.sort(movieIndex, new ByReleaseDate());
+        Integer latestYear = Collections.max(listOfYears);
+        Integer oldestYear = Collections.min(listOfYears);
+        Integer yearGap = latestYear - oldestYear;
+        return yearGap;
+    }
+
     public static void main(String[] args) {
 
     }
 
-    public static Movie sciFi() {
-        List<Movie> filteredCertificates = new ArrayList<>();
-        for(Movie movie:movieIndex){
-            if ("PG".equals(movie.getCertificate())) {
-                filteredCertificates.add(movie);
-            }
-        }
-        Collections.sort(filteredCertificates);
-        filteredCertificates.sort(new ByReleaseDate());
-        return filteredCertificates.get(4);
-    }
+
 
 }
+
+
+
 
 
