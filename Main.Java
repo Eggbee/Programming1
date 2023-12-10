@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
         MovieDatabase imdb = new MovieDatabase();
-        imdb.readData();
+        imdb.readData(); //reads in the data from the database
 
 
         //Query for Part  2
@@ -18,7 +18,6 @@ public class Main {
         System.out.println("The fifth most recent PG movie is: " + imdb.PGratedMovie());
         //Query for Part 5
         System.out.println("The movie with the longest name is: " + imdb.longestName());
-
         //Query for Part 6
         System.out.println("The number of years seperating the oldest and newest films is : " + imdb.sortReleaseDate());
 
