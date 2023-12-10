@@ -64,14 +64,15 @@ public class MovieDatabase {
     {
         ArrayList<Movie> filteredCertificates = new ArrayList<>();
         for(Movie movie:movieIndex){
-            if ("PG".equals(movie.getCertificate())) {
+            String temp = movie.getCertificate().replaceAll("\"","");
+            if (temp.equals("PG") == true) {
                 filteredCertificates.add(movie);
             }
         }
         Collections.sort(filteredCertificates);
         filteredCertificates.sort(new ByReleaseDate());
-        int arrayLength = filteredCertificates.size();
-        return filteredCertificates.get(arrayLength - 5);
+        reverse(filteredCertificates);
+        return filteredCertificates.get(4);
     }
 
     //find the longest name
@@ -105,9 +106,7 @@ public class MovieDatabase {
     public static void main(String[] args) {
 
     }
-
-
-
+    
 }
 
 
